@@ -20,7 +20,7 @@ public class HelloWorldControllerTest {
   @Test
   void helloWorldRespondsWithCorrectBody() {
     String response = client.toBlocking().retrieve("/hello");
-    assertEquals(response, "Hello World!");
+    assertEquals("Hello World!", response);
   }
 
   @Test
