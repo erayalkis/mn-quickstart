@@ -3,9 +3,10 @@ package com.erayalkis.udemy;
 import jakarta.inject.Singleton;
 
 @Singleton
-public class HelloWorldService {
+public class HelloWorldService implements MyService {
   
- String helloFromService() {
+  @Override
+  public String helloFromService() {
     return "Hello World!";
   }
 
