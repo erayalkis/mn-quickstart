@@ -14,10 +14,15 @@ public class HelloWorldController {
   private static final Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
   private final String helloFromConfig;
   private final MyService service;
+  private final HelloWorldTranslationConfig helloWorldTranslationconfig;
 
-  public HelloWorldController(MyService service, @Property(name="hello.world.message")   String helloFromConfig) {
+  public HelloWorldController(MyService service, 
+    @Property(name="hello.world.message") String helloFromConfig, 
+    HelloWorldTranslationConfig helloWorldTranslationConfig
+  ) {
     this.service = service;
     this.helloFromConfig = helloFromConfig;
+    this.helloWorldTranslationconfig = helloWorldTranslationConfig;
   }
 
   @Get(produces = MediaType.TEXT_PLAIN)
@@ -30,5 +35,11 @@ public class HelloWorldController {
   public String helloFromConfig() {
     LOG.debug("Return hello from config message: {}", helloFromConfig);
     return helloFromConfig;
+  }
+
+  @Get(uri="/translation", produces=MediaType.APPLICATION_JSON)
+  public HelloWorldTranslationConfig helloTranslation() {
+    LOG.debug("Return translation config {}", helloWorldTranslationconfig);
+    return helloWorldTranslationconfig;
   }
 }
