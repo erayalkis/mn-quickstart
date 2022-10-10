@@ -30,4 +30,11 @@ public class HelloWorldControllerTest {
     assertEquals("Hello World!", response.body());
     assertEquals(200, response.code());
   }
+
+  @Test
+  void helloWorldReturnsCorrectResponseFromConfig() {
+    HttpResponse<String> response = client.toBlocking().exchange("/hello/config", String.class);
+
+    assertEquals("Hello from application.yml!", response.body());
+  }
 }

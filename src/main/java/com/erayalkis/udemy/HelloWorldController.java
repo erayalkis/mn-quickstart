@@ -26,8 +26,8 @@ public class HelloWorldController {
     return service.helloFromService();
   }
 
-  @Get(uri="/config",produces=MediaType.TEXT_PLAIN)
-  public String configHello() {
+  @Get(uri="/config", produces=MediaType.TEXT_PLAIN)
+  public String helloFromConfig() {
     LOG.debug("Return hello from config message: {}", helloFromConfig);
     return helloFromConfig;
   }
