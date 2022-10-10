@@ -2,7 +2,7 @@ micronaut:
   application:
     name: mnQuickstart
   server:
-    port: 3000
+    port: ${SERVER_PORT:3000}
 netty:
   default:
     allocator:
